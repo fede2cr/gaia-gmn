@@ -6,7 +6,10 @@ use crate::model::StationInfo;
 
 #[component]
 pub fn StationCard(info: StationInfo) -> impl IntoView {
-    let loc = format!("{:.4}°, {:.4}° ({:.0} m)", info.latitude, info.longitude, info.elevation);
+    let loc = format!(
+        "{:.4}°, {:.4}° ({:.0} m)",
+        info.latitude, info.longitude, info.elevation
+    );
 
     view! {
         <div class="card station-card">

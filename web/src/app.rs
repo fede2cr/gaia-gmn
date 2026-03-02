@@ -5,8 +5,8 @@ use leptos_meta::*;
 use leptos_router::*;
 
 use crate::pages::{
-    capture::CapturePage, detections::DetectionsPage, home::Home,
-    night_detail::NightDetailPage, nights::NightsPage,
+    capture::CapturePage, detections::DetectionsPage, home::Home, night_detail::NightDetailPage,
+    nights::NightsPage,
 };
 
 /// The root `<App/>` component.

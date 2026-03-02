@@ -6,9 +6,7 @@
 
 use leptos::*;
 
-use crate::model::{
-    CaptureStatus, FileEntry, MeteorDetection, NightSummary, StationInfo,
-};
+use crate::model::{CaptureStatus, FileEntry, MeteorDetection, NightSummary, StationInfo};
 
 // ── Helpers (SSR only) ──────────────────────────────────────────────
 
@@ -19,9 +17,7 @@ fn capture_api_url() -> String {
 
 #[cfg(feature = "ssr")]
 fn data_dir() -> std::path::PathBuf {
-    std::path::PathBuf::from(
-        std::env::var("GAIA_DATA_DIR").unwrap_or_else(|_| "/data".into()),
-    )
+    std::path::PathBuf::from(std::env::var("GAIA_DATA_DIR").unwrap_or_else(|_| "/data".into()))
 }
 
 #[cfg(feature = "ssr")]
@@ -118,8 +114,7 @@ pub async fn get_detection_counts() -> Result<(u64, u64), ServerFnError> {
 /// gaia-core at container launch.
 #[server(GetStationInfo, "/api")]
 pub async fn get_station_info() -> Result<StationInfo, ServerFnError> {
-    let station_id =
-        std::env::var("STATION_ID").unwrap_or_else(|_| "Unknown".into());
+    let station_id = std::env::var("STATION_ID").unwrap_or_else(|_| "Unknown".into());
     let latitude: f64 = std::env::var("LATITUDE")
         .ok()
         .and_then(|v| v.parse().ok())
