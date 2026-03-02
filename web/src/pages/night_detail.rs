@@ -13,8 +13,8 @@ pub fn NightDetailPage() -> impl IntoView {
     let params = use_params_map();
     let night_dir = move || params.with(|p| p.get("night_dir").cloned().unwrap_or_default());
 
-    let files = create_resource(night_dir, |dir| get_night_files(dir));
-    let detections = create_resource(night_dir, |dir| get_night_detections(dir));
+    let files = create_resource(night_dir, get_night_files);
+    let detections = create_resource(night_dir, get_night_detections);
 
     view! {
         <section class="night-detail-page">

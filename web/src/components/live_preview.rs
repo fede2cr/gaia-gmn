@@ -12,7 +12,7 @@ const LIVE_IMG_PATH: &str = "/data/live.jpg";
 /// Displays the latest camera frame, auto-refreshing.
 #[component]
 pub fn LivePreview() -> impl IntoView {
-    let (tick, set_tick) = create_signal(0u64);
+    let (tick, _set_tick) = create_signal(0u64);
 
     // Bump a counter every 2 s to force a new image URL.
     #[cfg(feature = "hydrate")]
