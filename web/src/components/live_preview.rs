@@ -20,7 +20,7 @@ pub fn LivePreview() -> impl IntoView {
         use wasm_bindgen::prelude::*;
 
         let cb = Closure::wrap(Box::new(move || {
-            set_tick.update(|t| *t += 1);
+            _set_tick.update(|t| *t += 1);
         }) as Box<dyn Fn()>);
 
         // `setInterval` returns an ID we intentionally leak because it lives
