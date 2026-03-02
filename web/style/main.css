@@ -1,0 +1,562 @@
+/* ── Gaia GMN Web – Main Stylesheet ────────────────────────────── */
+
+/* ── Reset / base ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0f1117;
+    --bg-card: #181b24;
+    --border: #2a2e3a;
+    --text: #e1e4eb;
+    --text-dim: #8b8fa3;
+    --accent: #6c8cff;
+    --accent-dim: #3a4d8c;
+    --error: #f44;
+    --success: #5ad87e;
+    --radius: 8px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+html {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text);
+    background: var(--bg);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ── Navigation ──────────────────────────────────────────────── */
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+.nav-brand:hover {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+.nav-links a {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    transition: color 0.15s, background 0.15s;
+}
+.nav-links a:hover {
+    color: var(--text);
+    background: rgba(108, 140, 255, 0.1);
+    text-decoration: none;
+}
+
+/* ── Main content ────────────────────────────────────────────── */
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-dim);
+}
+
+.subtitle {
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+}
+
+/* ── Cards ───────────────────────────────────────────────────── */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+}
+
+.error-card {
+    border-color: var(--error);
+}
+.error-card p {
+    color: var(--error);
+}
+
+/* ── Status card ─────────────────────────────────────────────── */
+.status-card {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+.stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-top: 0.15rem;
+}
+
+/* ── Dashboard grid ──────────────────────────────────────────── */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Capture page grid ───────────────────────────────────────── */
+.capture-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 800px) {
+    .capture-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Live preview ────────────────────────────────────────────── */
+.live-preview {
+    text-align: center;
+}
+
+.live-img {
+    width: 100%;
+    max-width: 640px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: #000;
+}
+
+.live-caption {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 0.4rem;
+}
+
+/* ── File list ───────────────────────────────────────────────── */
+.file-list {
+    margin-top: 0.5rem;
+}
+
+.file-summary {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.file-table thead th {
+    text-align: left;
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.file-table tbody tr {
+    border-bottom: 1px solid rgba(42, 46, 58, 0.5);
+}
+.file-table tbody tr:hover {
+    background: rgba(108, 140, 255, 0.05);
+}
+
+.file-table td {
+    padding: 0.35rem 0.6rem;
+}
+
+.file-name {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 0.82rem;
+}
+
+.file-size {
+    color: var(--text-dim);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.no-files {
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* ── Detections placeholder ──────────────────────────────────── */
+.placeholder-msg {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    padding: 2rem;
+    text-align: center;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+}
+
+/* ── Loading / error ─────────────────────────────────────────── */
+.loading {
+    color: var(--text-dim);
+}
+
+.error {
+    color: var(--error);
+}
+
+/* ── Quick stats row (home) ──────────────────────────────────── */
+.quick-stats {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.quick-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    transition: border-color 0.15s;
+}
+.quick-stat-card:hover {
+    border-color: var(--accent);
+    text-decoration: none;
+}
+
+/* ── Station card ────────────────────────────────────────────── */
+.station-card {
+    max-width: 480px;
+}
+
+.station-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.station-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.station-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+}
+
+.station-label {
+    color: var(--text-dim);
+}
+
+.station-value {
+    font-weight: 500;
+}
+
+/* ── Nights page ─────────────────────────────────────────────── */
+.nights-page {
+    padding-bottom: 2rem;
+}
+
+.night-count {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.nights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.night-card {
+    display: block;
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.1s;
+}
+.night-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.night-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+}
+
+.night-station {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.night-time {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+}
+
+.night-card-stats {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.night-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.night-stat-value {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text);
+}
+
+.night-stat-label {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ── Night detail page ───────────────────────────────────────── */
+.night-detail-page {
+    padding-bottom: 2rem;
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.back-link {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.25rem;
+    display: inline-block;
+}
+.back-link:hover {
+    color: var(--accent);
+}
+
+.night-summary-bar {
+    display: flex;
+    gap: 2rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+}
+
+.night-stat {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+/* ── Detections page ─────────────────────────────────────────── */
+.detection-summary {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0 1.5rem;
+    flex-wrap: wrap;
+}
+
+.det-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 90px;
+}
+
+.det-stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.det-stat-value.confirmed {
+    color: var(--success);
+}
+
+.det-stat-value.candidate {
+    color: var(--text-dim);
+}
+
+.det-stat-label {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 0.15rem;
+}
+
+/* ── Detection table ─────────────────────────────────────────── */
+.detection-table-wrap {
+    overflow-x: auto;
+    margin-top: 0.5rem;
+}
+
+.detection-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.detection-table thead th {
+    text-align: left;
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.detection-table tbody tr {
+    border-bottom: 1px solid rgba(42, 46, 58, 0.5);
+}
+.detection-table tbody tr:hover {
+    background: rgba(108, 140, 255, 0.05);
+}
+
+.detection-table td {
+    padding: 0.4rem 0.6rem;
+}
+
+.det-time a {
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.det-ff {
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mono {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 0.82rem;
+}
+
+/* ── Badges ──────────────────────────────────────────────────── */
+.badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.badge-confirmed {
+    background: rgba(90, 216, 126, 0.15);
+    color: var(--success);
+}
+
+.badge-candidate {
+    background: rgba(108, 140, 255, 0.15);
+    color: var(--accent);
+}
+
+.badge-ff {
+    background: rgba(108, 140, 255, 0.15);
+    color: var(--accent);
+}
+
+.badge-fs {
+    background: rgba(139, 143, 163, 0.15);
+    color: var(--text-dim);
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    margin: 1rem 0;
+}
+
+.empty-state p {
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+}
+
+.hint {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-style: italic;
+}

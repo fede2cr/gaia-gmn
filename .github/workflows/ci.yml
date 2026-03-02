@@ -53,6 +53,9 @@ jobs:
           - image: capture
             context: .
             file: capture/Containerfile
+          - image: web
+            context: .
+            file: web/Containerfile
 
     permissions:
       contents: read
